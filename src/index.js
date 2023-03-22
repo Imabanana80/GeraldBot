@@ -12,8 +12,8 @@ const { REST } = require("@discordjs/rest");
 const { registerSlashCommands, registerEvents } = require("./utils/registry");
 const readLastLines = require("read-last-lines");
 const os = require("os");
-var fs = require("fs");
-var util = require("util");
+const fs = require("fs");
+const util = require("util");
 
 var log_file = fs.createWriteStream(__dirname + "/console.txt", { flags: "w" });
 var log_stdout = process.stdout;

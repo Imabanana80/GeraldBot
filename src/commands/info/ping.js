@@ -42,6 +42,6 @@ module.exports = class pingSlashCommand extends baseSlashCommand {
   getSlashCommandJSON() {
     return new SlashCommandBuilder()
       .setName(this.name)
-      .setDescription("Replies with Pong!");
+      .setDescription("Check the latency of the bot");
   }
 };

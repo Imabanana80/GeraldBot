@@ -13,7 +13,7 @@ async function errorMessageEdit(interaction, err) {
     .addFields({
       name: "If this problem persists,",
       value:
-        "[Click here to contact the developers!](https://discord.gg/Imabanana80)",
+        "[Click here to contact the developers!](https://discord.gg/5GxWqAEdez)",
       inline: true,
     })
     .addFields({
@@ -79,8 +79,8 @@ async function errorMessage(interaction, err) {
         inline: true,
       }
     );
-  const webhookclient = new WebhookClient({ url: process.env.ERRWEBHOOK });
-  await webhookclient.send({
+  const errorWebhookClient = new WebhookClient({ url: process.env.ERRWEBHOOK });
+  await errorWebhookClient.send({
     embeds: [whembed],
     files: ["./src/console.txt"],
   });
