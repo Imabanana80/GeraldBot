@@ -15,6 +15,7 @@
     "discord.js": "^14.8.0",
     "dotenv": "^16.0.3",
     "nodemon": "^2.0.21",
+    "openai": "^3.2.1",
     "read-last-lines": "^1.8.0"
   }
 }

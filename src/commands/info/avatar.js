@@ -1,6 +1,5 @@
 const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
 const baseSlashCommand = require("../../utils/baseSlashCommand");
-const { errorMessage } = require("../../utils/errorMessage");
 
 module.exports = class avatarSlashCommand extends baseSlashCommand {
   constructor() {

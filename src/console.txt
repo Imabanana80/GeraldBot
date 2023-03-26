@@ -1,6 +1,10 @@
 [Startup] Starting application...
+[Startup] Found file ..\commands\AI/ask-gpt.js
+[Startup] Registring ask-gpt command
 [Startup] Found file ..\commands\info/avatar.js
 [Startup] Registring avatar command
+[Startup] Found file ..\commands\info/credits.js
+[Startup] Registring credits command
 [Startup] Found file ..\commands\info/ping.js
 [Startup] Registring ping command
 [Startup] Found file ../events/interactionCreate.js
@@ -15,7 +19,6 @@ Username   : Developer
 Tag        : #1786
 ClientID   : 896611361143005224 
 ==============================================================
-Sun Mar 26 2023 14:46:45 GMT+0800 (Singapore Standard Time)
+Sun Mar 26 2023 16:12:14 GMT+0800 (Singapore Standard Time)
 ==============================================================
 [Client] Bot has been logged in.
-[Error] ReferenceError: targetUer is not defined
