@@ -45,6 +45,17 @@ async function errorMessage(interaction, err) {
   return;
 }
 
+async function noPerms(interaction, permission) {
+  const noPermsEmbed = new EmbedBuilder()
+    .setTitle("Insufficient permissions!")
+    .setColor(0x2f3136)
+    .setDescription(
+      `You dont have the required permission(s) \`\`${permission}\`\``
+    );
+  await interaction.editReply({ embeds: [noPermsEmbed] });
+}
+
 module.exports = {
   errorMessage,
+  noPerms,
 };

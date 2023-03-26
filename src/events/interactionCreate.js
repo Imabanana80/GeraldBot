@@ -1,7 +1,7 @@
 const baseEvent = require("../utils/baseEvent");
 // const { InteractionType } = require("discord.js");
-const { errorMessage } = require("../utils/errorMessage");
-const talkedRecently = new Set();
+const { errorMessage } = require("../utils/functions");
+const cooldownManager = new Set();
 
 module.exports = class interactionCreateEvent extends baseEvent {
   constructor() {
@@ -13,7 +13,7 @@ module.exports = class interactionCreateEvent extends baseEvent {
       const { commandName } = interaction;
       const cmd = client.slashCommands.get(commandName);
       if (cmd) {
-        if (talkedRecently.has(interaction.user.id)) {
+        if (cooldownManager.has(interaction.user.id)) {
           interaction.reply(
             "**You're going to fast!**\n> *There is a ``2`` second global cooldown.*"
           );
@@ -24,9 +24,9 @@ module.exports = class interactionCreateEvent extends baseEvent {
             })
           );
         }
-        talkedRecently.add(interaction.user.id);
+        cooldownManager.add(interaction.user.id);
         setTimeout(() => {
-          talkedRecently.delete(interaction.user.id);
+          cooldownManager.delete(interaction.user.id);
         }, 2000);
       }
     }
