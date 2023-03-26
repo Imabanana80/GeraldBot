@@ -78,7 +78,7 @@ async function main() {
     await client.login(process.env.TOKEN);
   } catch (error) {
     console.log(`[Startup] An unexpected error occured during startup`);
-    console.log(`[Startup] ${error}`);
+    console.log(`[Startup] ${error.stack}`);
   }
 }
 

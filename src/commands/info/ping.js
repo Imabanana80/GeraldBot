@@ -1,6 +1,6 @@
 const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
 const baseSlashCommand = require("../../utils/baseSlashCommand");
-const { errorMessageEdit } = require("../../utils/errorMessages");
+const { errorMessage } = require("../../utils/errorMessage");
 
 module.exports = class pingSlashCommand extends baseSlashCommand {
   constructor() {
@@ -35,9 +35,7 @@ module.exports = class pingSlashCommand extends baseSlashCommand {
           inline: true,
         }
       );
-    interaction
-      .editReply({ embeds: [embed] })
-      .catch((err) => errorMessageEdit(interaction, err));
+    interaction.editReply({ embeds: [embed] });
   }
   getSlashCommandJSON() {
     return new SlashCommandBuilder()

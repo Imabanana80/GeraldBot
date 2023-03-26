@@ -1,6 +1,6 @@
 const baseEvent = require("../utils/baseEvent");
 // const { InteractionType } = require("discord.js");
-const { errorMessage, errorMessageEdit } = require("../utils/errorMessages");
+const { errorMessage } = require("../utils/errorMessage");
 const talkedRecently = new Set();
 
 module.exports = class interactionCreateEvent extends baseEvent {
@@ -20,7 +20,7 @@ module.exports = class interactionCreateEvent extends baseEvent {
         } else {
           cmd.run(client, interaction).catch((err) =>
             errorMessage(interaction, err).catch((error) => {
-              errorMessageEdit(interaction, err);
+              console.log(`[FATAL] ${err.stack}`);
             })
           );
         }
