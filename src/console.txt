@@ -1,0 +1,19 @@
+[Startup] Starting application...
+[Startup] Found file ..\commands\AI/ask-gpt.js
+[Startup] Registring ask-gpt command
+[Startup] Found file ..\commands\developer/devtools.js
+[Startup] Registring devtools command
+[Startup] Found file ..\commands\info/avatar.js
+[Startup] Registring avatar command
+[Startup] Found file ..\commands\info/credits.js
+[Startup] Registring credits command
+[Startup] Found file ..\commands\info/ping.js
+[Startup] Registring ping command
+[Startup] Found file ../events/interactionCreate.js
+[Startup] Registring interactionCreate event
+[Startup] Found file ../events/ready.js
+[Startup] Registring ready event
+[Startup] Started refreshing application (/) commands.
+[Error] LOGS - DiscordAPIError[0]: 404: Not Found
+[Startup] Successfully reloaded application (/) commands.
+[Startup] Logging bot in...
