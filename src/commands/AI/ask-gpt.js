@@ -7,8 +7,7 @@ module.exports = class askgptSlashCommand extends baseSlashCommand {
     super("ask-gpt");
   }
   async run(client, interaction) {
-    require("dotenv").config();
-    // await interaction.deferReply();
+    interaction.deferReply();
     // const prompt = interaction.options.get("prompt").value;
     // const openaiConfig = new Configuration({
     //   apiKey: process.env.OPENAIKEY,
@@ -28,7 +27,7 @@ module.exports = class askgptSlashCommand extends baseSlashCommand {
     //   })
     //   .setColor(0xfaff86);
     // interaction.editReply({ embeds: [embed] });
-    interactiom.editReply("This command has been temporarily disabled");
+    interaction.editReply("This command has been disabled till further notice");
   }
   getSlashCommandJSON() {
     return new SlashCommandBuilder()
