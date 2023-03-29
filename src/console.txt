@@ -7,13 +7,25 @@
 [Startup] Registring avatar command
 [Startup] Found file ..\commands\info/credits.js
 [Startup] Registring credits command
+[Startup] Found file ..\commands\info/invite.js
+[Startup] Registring invite command
 [Startup] Found file ..\commands\info/ping.js
 [Startup] Registring ping command
 [Startup] Found file ../events/interactionCreate.js
 [Startup] Registring interactionCreate event
+[Startup] Found file ../events/ping.js
+[Startup] Registring messageCreate event
 [Startup] Found file ../events/ready.js
 [Startup] Registring ready event
 [Startup] Started refreshing application (/) commands.
-[Error] LOGS - DiscordAPIError[0]: 404: Not Found
 [Startup] Successfully reloaded application (/) commands.
 [Startup] Logging bot in...
+==============================================================
+Username   : Developer
+Tag        : #1786
+ClientID   : 896611361143005224 
+==============================================================
+Wed Mar 29 2023 11:06:20 GMT+0800 (Singapore Standard Time)
+==============================================================
+[Client] Bot has been logged in.
+[Ping] I was pinged in 955760668697579580
