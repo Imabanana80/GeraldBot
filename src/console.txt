@@ -11,6 +11,8 @@
 [Startup] Registring invite command
 [Startup] Found file ..\commands\info/ping.js
 [Startup] Registring ping command
+[Startup] Found file ..\commands\info/userinfo.js
+[Startup] Registring userinfo command
 [Startup] Found file ../events/botInvite.js
 [Startup] Registring guildCreate event
 [Startup] Found file ../events/interactionCreate.js
@@ -27,7 +29,6 @@ Username   : Developer
 Tag        : #1786
 ClientID   : 896611361143005224 
 ==============================================================
-Wed Mar 29 2023 11:28:24 GMT+0800 (Singapore Standard Time)
+Wed Mar 29 2023 19:29:30 GMT+0800 (Singapore Standard Time)
 ==============================================================
 [Client] Bot has been logged in.
-[oAuth] The bot was invited to Dummy Server 2 - 1043517438383378432

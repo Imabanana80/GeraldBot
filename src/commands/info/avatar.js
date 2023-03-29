@@ -27,7 +27,7 @@ module.exports = class avatarSlashCommand extends baseSlashCommand {
       .setName(this.name)
       .setDescription("View the avatar of the target user")
       .addUserOption((option) =>
-        option.setName("user").setDescription("target user")
+        option.setName("user").setDescription("target")
       );
   }
 };
