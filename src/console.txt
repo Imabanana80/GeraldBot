@@ -11,6 +11,8 @@
 [Startup] Registring invite command
 [Startup] Found file ..\commands\info/ping.js
 [Startup] Registring ping command
+[Startup] Found file ..\commands\info/serverinfo.js
+[Startup] Registring serverinfo command
 [Startup] Found file ..\commands\info/userinfo.js
 [Startup] Registring userinfo command
 [Startup] Found file ../events/botInvite.js
@@ -29,6 +31,6 @@ Username   : Developer
 Tag        : #1786
 ClientID   : 896611361143005224 
 ==============================================================
-Wed Mar 29 2023 19:29:30 GMT+0800 (Singapore Standard Time)
+Wed Mar 29 2023 20:22:58 GMT+0800 (Singapore Standard Time)
 ==============================================================
 [Client] Bot has been logged in.
