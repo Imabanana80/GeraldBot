@@ -39,11 +39,6 @@ module.exports = class readyEvent extends baseEvent {
       },
       {
         type: ActivityType.Watching,
-        text: "https://imabanana80.com/discord",
-        typeString: "Watching",
-      },
-      {
-        type: ActivityType.Watching,
         text: `${client.guilds.cache.size} Servers`,
         typeString: "Watching",
       },
