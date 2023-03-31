@@ -17,6 +17,8 @@
 [Startup] Registring serverinfo command
 [Startup] Found file ..\commands\info/userinfo.js
 [Startup] Registring userinfo command
+[Startup] Found file ..\commands\moderation/purge.js
+[Startup] Registring purge command
 [Startup] Found file ../events/botInvite.js
 [Startup] Registring guildCreate event
 [Startup] Found file ../events/interactionCreate.js
@@ -26,6 +28,7 @@
 [Startup] Found file ../events/ready.js
 [Startup] Registring ready event
 [Startup] Started refreshing application (/) commands.
+[Console Error] - DiscordAPIError[0]: 404: Not Found
 [Startup] Successfully reloaded application (/) commands.
 [Startup] Logging bot in...
 ==============================================================
@@ -33,7 +36,6 @@ Username   : Developer
 Tag        : #1786
 ClientID   : 896611361143005224 
 ==============================================================
-Wed Mar 29 2023 20:30:08 GMT+0800 (Singapore Standard Time)
+Fri Mar 31 2023 22:50:09 GMT+0800 (Singapore Standard Time)
 ==============================================================
 [Client] Bot has been logged in.
-[Axios] Requesting meme from https://www.reddit.com/r/memes/

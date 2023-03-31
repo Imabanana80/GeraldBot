@@ -117,7 +117,7 @@ setInterval(() => {
           nowtime - starttime
         )} @@${cb}`,
       })
-      .catch((err) => console.log(`[Error] LOGS - ${err}`))
+      .catch((err) => console.log(`[Console Error] - ${err}`))
   );
 }, 1 * 1000);
 
