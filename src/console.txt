@@ -28,7 +28,6 @@
 [Startup] Found file ../events/ready.js
 [Startup] Registring ready event
 [Startup] Started refreshing application (/) commands.
-[Console Error] - DiscordAPIError[0]: 404: Not Found
 [Startup] Successfully reloaded application (/) commands.
 [Startup] Logging bot in...
 ==============================================================
@@ -36,6 +35,6 @@ Username   : Developer
 Tag        : #1786
 ClientID   : 896611361143005224 
 ==============================================================
-Fri Mar 31 2023 22:50:09 GMT+0800 (Singapore Standard Time)
+Sun Apr 02 2023 18:24:59 GMT+0800 (Singapore Standard Time)
 ==============================================================
 [Client] Bot has been logged in.

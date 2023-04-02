@@ -48,7 +48,7 @@ async function errorMessage(interaction, err) {
 async function noPerms(interaction, permission) {
   const noPermsEmbed = new EmbedBuilder()
     .setTitle("Insufficient permissions!")
-    .setColor(0x2f3136)
+    .setColor("Red")
     .setDescription(
       `You dont have the required permission(s) \`\`${permission}\`\``
     );
