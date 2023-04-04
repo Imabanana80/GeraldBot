@@ -11,7 +11,7 @@ module.exports = class purgeSlashCommand extends baseSlashCommand {
     super("purge");
   }
   async run(client, interaction) {
-    await interaction.deferReply();
+    interaction.deferReply({ ephemeral: true });
     const interactionMember = await interaction.guild.members.fetch(
       `${interaction.user.id}`
     );
@@ -31,7 +31,7 @@ module.exports = class purgeSlashCommand extends baseSlashCommand {
           .setTitle("Successfully Purged Messages")
           .setColor(0xfaff86)
           .setDescription(
-            `Purged \`\`${amountToPurge}\`\` messages from ${interaction.channel}`
+            `Purged \`\`${purgeAmount}\`\` messages from ${interaction.channel}`
           );
         interaction.channel.bulkDelete(purgeAmount).then(() => {
           interaction.editReply({ embeds: [embed], ephemeral: true });
