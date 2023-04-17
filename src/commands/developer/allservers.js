@@ -27,7 +27,7 @@ module.exports = class allserversSlashCommand extends baseSlashCommand {
           ""
         )
         .setDescription(serverlist);
-      interaction.editReply({ Embeds: [embed] });
+      interaction.editReply({ embeds: [embed] });
     }
   }
   getSlashCommandJSON() {
