@@ -1,5 +1,8 @@
-## GeraldBot
+## Gerald
 Utility, moderation, games, tickets, anything you can imagine.
+
+### Invite
+You can invite Gerald from the [official website](https://imabanana80.com/geraldbot/invite), or from the [top.gg page](https://top.gg/bot/1024281696494964746).
 
 ### Commands & Features
 Documentation for the commands and features the bot provides can be viewed in the [wiki](https://github.com/Imabanana80/GeraldBot/wiki).
