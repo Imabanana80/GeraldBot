@@ -15,11 +15,7 @@ module.exports = class purgeSlashCommand extends baseSlashCommand {
     const interactionMember = await interaction.guild.members.fetch(
       `${interaction.user.id}`
     );
-    if (
-      !interactionMember.permissions.has(PermissionFlagsBits.ManageMessages)
-    ) {
-      await noPerms(interaction, "MANAGE MESSAGES");
-    } else {
+    if (interactionMember.permissions.has(PermissionFlagsBits.ManageMessages)) {
       const purgeAmount = interaction.options.get("amount").value;
       if (purgeAmount > 100) {
         errorMessage(
@@ -37,6 +33,8 @@ module.exports = class purgeSlashCommand extends baseSlashCommand {
           interaction.editReply({ embeds: [embed], ephemeral: true });
         });
       }
+    } else {
+      await noPerms(interaction, "MANAGE MESSAGES");
     }
   }
   getSlashCommandJSON() {

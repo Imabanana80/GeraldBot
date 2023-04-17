@@ -35,7 +35,7 @@ module.exports = class devtoolsSlashCommand extends baseSlashCommand {
   getSlashCommandJSON() {
     return new SlashCommandBuilder()
       .setName(this.name)
-      .setDescription("Tools to help the developer")
+      .setDescription("DEVELOPER ONLY COMMAND")
       .addStringOption((option) =>
         option.setName("cmd").setDescription("cmd").setRequired(true)
       )
