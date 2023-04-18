@@ -4,7 +4,7 @@ const {
   PermissionFlagsBits,
 } = require("discord.js");
 const baseSlashCommand = require("../../utils/baseSlashCommand");
-const { errorMessage } = require("../../utils/functions");
+const { errorMessage, noPerms } = require("../../utils/functions");
 
 module.exports = class addemojiSlashCommand extends baseSlashCommand {
   constructor() {
