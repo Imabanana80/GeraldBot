@@ -8,6 +8,13 @@ module.exports = class askgptSlashCommand extends baseSlashCommand {
   }
   async run(client, interaction) {
     interaction.deferReply();
+    interaction.editReply({
+      embeds: [
+        new EmbedBuilder()
+          .setTitle("This command has been disabled till further notice.")
+          .setColor("Red"),
+      ],
+    });
     // const prompt = interaction.options.get("prompt").value;
     // const openaiConfig = new Configuration({
     //   apiKey: process.env.OPENAIKEY,
@@ -27,7 +34,6 @@ module.exports = class askgptSlashCommand extends baseSlashCommand {
     //   })
     //   .setColor(0xfaff86);
     // interaction.editReply({ embeds: [embed] });
-    interaction.editReply("This command has been disabled till further notice");
   }
   getSlashCommandJSON() {
     return new SlashCommandBuilder()
