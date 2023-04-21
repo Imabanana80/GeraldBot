@@ -95,7 +95,12 @@ module.exports = class serverinfoSlashCommand extends baseSlashCommand {
         { name: `Emojis `, value: `${allEmojisFetch.size}`, inline: true },
         { name: `Bans`, value: `${bansFetch.size}`, inline: true }
       )
-      .setThumbnail(`${interaction.guild.iconURL()}`);
+      .setThumbnail(
+        `${
+          interaction.guild.iconURL() ||
+          "https://cdn.discordapp.com/attachments/1087933287802097715/1098911483271856180/default.png"
+        }`
+      );
     interaction.editReply({ embeds: [embed] });
   }
   getSlashCommandJSON() {
