@@ -11,7 +11,7 @@ module.exports = class purgeSlashCommand extends baseSlashCommand {
     super("purge");
   }
   async run(client, interaction) {
-    interaction.deferReply({ ephemeral: true });
+    await interaction.deferReply({ ephemeral: true });
     const interactionMember = await interaction.guild.members.fetch(
       `${interaction.user.id}`
     );
