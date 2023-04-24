@@ -18,7 +18,7 @@ module.exports = class addemojiSlashCommand extends baseSlashCommand {
 
     if (
       interactionMember.permissions.has(
-        PermissionFlagsBits.ManageEmojisAndStickers
+        PermissionFlagsBits.ManageGuildExpressions
       )
     ) {
       const emoji = interaction.options.get("emoji").value;
