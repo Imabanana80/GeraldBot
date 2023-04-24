@@ -35,18 +35,17 @@ module.exports = class addemojiSlashCommand extends baseSlashCommand {
         await interaction.guild.emojis
           .create({ attachment: emojiurl, name: emojiName })
           .then((emoji) => {
-            const succembed = new EmbedBuilder()
+            const embed = new EmbedBuilder()
               .setTitle("Emoji added!")
               .setDescription(`Added ${emoji}`)
               .setColor(0xfaff86);
-            interaction.editReply({ embeds: [succembed] });
+            interaction.editReply({ embeds: [embed] });
           });
       } else {
         errorMessage(interaction, "Error: Invalid Emoji");
       }
-      interaction.editReply({ embeds: [embed] });
     } else {
-      await noPerms(interaction, "MANAGE EMOJIS AND STICKERS");
+      await noPerms(interaction, "MANAGE EXPRESSIONS");
     }
   }
   getSlashCommandJSON() {
