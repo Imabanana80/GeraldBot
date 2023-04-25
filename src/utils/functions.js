@@ -34,14 +34,17 @@ async function errorMessage(interaction, err) {
       }
     );
   const webhookclient = new WebhookClient({ url: process.env.ERRWEBHOOK });
-  const message = await webhookclient
+  let messageid = "";
+  await webhookclient
     .send({
       content: `<@${process.env.OWNERID}>`,
       embeds: [embed],
       files: ["./src/console.txt"],
     })
-    .then((whlogs) => {
-      messageid = whlogs.id;
+    .then((message) => {
+      messageid = message.id;
+      console.log(message);
+      message.react(`🟢`);
     });
   webhookclient.editMessage(messageid, {
     content: ``,

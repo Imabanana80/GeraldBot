@@ -2,9 +2,9 @@ const { SlashCommandBuilder } = require("discord.js");
 const baseSlashCommand = require("../../utils/baseSlashCommand");
 const whoiser = require("whoiser");
 
-module.exports = class whoisSlashCommand extends baseSlashCommand {
+module.exports = class whoislookupSlashCommand extends baseSlashCommand {
   constructor() {
-    super("whois");
+    super("whoislookup");
   }
   async run(client, interaction) {
     await interaction.deferReply();
