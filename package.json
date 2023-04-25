@@ -16,6 +16,7 @@
     "dotenv": "^16.0.3",
     "nodemon": "^2.0.21",
     "openai": "^3.2.1",
-    "read-last-lines": "^1.8.0"
+    "read-last-lines": "^1.8.0",
+    "whoiser": "^1.17.1"
   }
 }
