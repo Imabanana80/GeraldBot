@@ -20,7 +20,7 @@ async function errorMessage(interaction, err) {
       value: `${cb}${interaction.id}${cb}`,
       inline: true,
     });
-  const whembed = new EmbedBuilder()
+  const embed = new EmbedBuilder()
     .setTitle(`An error occured in ${interaction.guild.name}`)
     .setColor("Red")
     .setDescription(`${codeBlock}err\n${err.stack || err}${codeBlock}`)
@@ -34,10 +34,17 @@ async function errorMessage(interaction, err) {
       }
     );
   const webhookclient = new WebhookClient({ url: process.env.ERRWEBHOOK });
-  await webhookclient.send({
-    content: `<@${process.env.OWNERID}>`,
-    embeds: [whembed],
-    files: ["./src/console.txt"],
+  const message = await webhookclient
+    .send({
+      content: `<@${process.env.OWNERID}>`,
+      embeds: [embed],
+      files: ["./src/console.txt"],
+    })
+    .then((whlogs) => {
+      messageid = whlogs.id;
+    });
+  webhookclient.editMessage(messageid, {
+    content: ``,
   });
   await interaction.editReply({
     embeds: [errembed],
