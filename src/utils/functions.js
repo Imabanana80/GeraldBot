@@ -35,6 +35,7 @@ async function errorMessage(interaction, err) {
     );
   const webhookclient = new WebhookClient({ url: process.env.ERRWEBHOOK });
   await webhookclient.send({
+    content: `<@${process.env.OWNERID}>`,
     embeds: [whembed],
     files: ["./src/console.txt"],
   });
