@@ -14,21 +14,19 @@ module.exports = class allserversSlashCommand extends baseSlashCommand {
       let serverlist = "";
       client.guilds.cache.forEach((guild) => {
         serverlist = serverlist.concat(
-          `**${guild.name}**` +
+          `${guild.name}` +
             ` (${guild.memberCount})` +
             " - " +
             `${guild.id}` +
             "\n"
         );
       });
-      const embed = new EmbedBuilder()
-        .setColor(0xfaff86)
-        .setTitle(
-          `All Servers (${client.users.cache.size} users in ${client.guilds.cache.size} servers)`,
-          ""
-        )
-        .setDescription(serverlist);
-      interaction.editReply({ embeds: [embed] });
+
+      var buff = Buffer.from(serverlist, "utf-8");
+      interaction.editReply({
+        content: `**${client.users.cache.size} users in ${client.guilds.cache.size} servers**`,
+        files: [{ attachment: buff, name: "serverlist.txt" }],
+      });
     }
   }
   getSlashCommandJSON() {
