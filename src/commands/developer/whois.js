@@ -9,7 +9,8 @@ module.exports = class whoisSlashCommand extends baseSlashCommand {
   async run(client, interaction) {
     await interaction.deferReply();
     const domain = interaction.options.get("domain").value;
-    var domaindata = await whoiser(`${domain}`);
+    var domaindata = await whoiser.domain(`${domain}`);
+    delete domaindata["whois.verisign-grs.com"].text;
     var buff = Buffer.from(JSON.stringify(domaindata, null, " "), "utf-8");
     await interaction.editReply({
       files: [{ attachment: buff, name: "domaindata.txt" }],
