@@ -14,6 +14,7 @@ const readLastLines = require("read-last-lines");
 const os = require("os");
 const fs = require("fs");
 const util = require("util");
+const axios = require("axios");
 
 var log_file = fs.createWriteStream(__dirname + "/console.txt", { flags: "w" });
 var log_stdout = process.stdout;
@@ -24,6 +25,11 @@ console.log = function (d) {
 };
 
 console.log(`[Startup] Starting application...`);
+
+//axios fix
+axios.defaults.validateStatus = function () {
+  return true;
+};
 
 const client = new Client({
   intents: [
