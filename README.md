@@ -1,4 +1,4 @@
-## Gerald
+![](https://widgets.infinitybots.gg/bot/gerald/?size=small&theme=light&accent=blue)
 
 Utility, moderation, games, tickets, anything you can imagine.
 
