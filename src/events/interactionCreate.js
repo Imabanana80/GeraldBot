@@ -19,7 +19,7 @@ module.exports = class interactionCreateEvent extends baseEvent {
           );
         } else {
           cmd.run(client, interaction).catch((err) =>
-            errorMessage(interaction, err).catch((error) => {
+            errorMessage(client, interaction, err).catch((error) => {
               console.log(`[FATAL] ${err.stack}`);
             })
           );

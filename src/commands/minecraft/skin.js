@@ -1,6 +1,7 @@
 const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
 const baseSlashCommand = require("../../utils/baseSlashCommand");
 const axios = require("axios");
+const { errorMessage } = require("../../utils/functions");
 
 module.exports = class skinSlashCommand extends baseSlashCommand {
   constructor() {
@@ -13,11 +14,11 @@ module.exports = class skinSlashCommand extends baseSlashCommand {
       .get(`https://api.mojang.com/users/profiles/minecraft/${username}`)
       .then((resp) => {
         if (resp.data.id == undefined) {
-          const embed = new EmbedBuilder()
-            .setDescription(
-              `The username \`\`${username}\`\` is invalid or does not exist`
-            )
-            .setColor("Red");
+          errorMessage(
+            client,
+            interaction,
+            `Error: Username entered is invalid!.\nPlease ensure that a valid minecraft username was entered`
+          );
           interaction.editReply({ embeds: [embed] });
         } else {
           const uuid = resp.data.id;

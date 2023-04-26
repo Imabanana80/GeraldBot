@@ -42,7 +42,7 @@ module.exports = class addemojiSlashCommand extends baseSlashCommand {
             interaction.editReply({ embeds: [embed] });
           });
       } else {
-        errorMessage(interaction, "Error: Invalid Emoji");
+        errorMessage(client, interaction, "Error: Invalid Emoji");
       }
     } else {
       await noPerms(interaction, "MANAGE EXPRESSIONS");

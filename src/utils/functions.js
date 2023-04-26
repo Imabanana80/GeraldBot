@@ -1,6 +1,6 @@
 const { EmbedBuilder, WebhookClient } = require("discord.js");
 
-async function errorMessage(interaction, err) {
+async function errorMessage(client, interaction, err) {
   const codeBlock = "```";
   const cb = "``";
   const errembed = new EmbedBuilder()
@@ -33,21 +33,16 @@ async function errorMessage(interaction, err) {
         inline: true,
       }
     );
-  const webhookclient = new WebhookClient({ url: process.env.ERRWEBHOOK });
-  let messageid = "";
-  await webhookclient.send({
-    content: `<@${process.env.OWNERID}>`,
-    embeds: [embed],
-    files: ["./src/console.txt"],
-  });
-  // .then((message) => {
-  //   messageid = message.id;
-  //   console.log(message);
-  //   message.react(`🟢`);
-  // });
-  webhookclient.editMessage(messageid, {
-    content: ``,
-  });
+  const errorChannel = await client.channels.fetch(process.env.ERRCHANNEL);
+  await errorChannel
+    .send({
+      content: `<@${process.env.OWNERID}>`,
+      embeds: [embed],
+      files: ["./src/console.txt"],
+    })
+    .then((message) => {
+      message.react(`🟢`);
+    });
   await interaction.editReply({
     embeds: [errembed],
   });

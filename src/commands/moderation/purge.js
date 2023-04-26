@@ -19,6 +19,7 @@ module.exports = class purgeSlashCommand extends baseSlashCommand {
       const purgeAmount = interaction.options.get("amount").value;
       if (purgeAmount > 100) {
         errorMessage(
+          client,
           interaction,
           "Error: Cannot purge more than 100 messages at a time"
         );

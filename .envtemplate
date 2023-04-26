@@ -4,6 +4,6 @@ OWNERID=<your id>
 GUILDID=<dev server guild id>
 CLIENTUSERNAME=<bot username without tag>
 CONSOLEWEBHOOK=<discord webhook to send console>
-ERRWEBHOOK=<discord webhook to send errors to>
+ERRCHANNEL=<discord channe to send errors to (ID)>
 OPENAIKEY=<openai api key>
 OPENAPIORG=<openai org id>
