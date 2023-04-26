@@ -35,17 +35,16 @@ async function errorMessage(interaction, err) {
     );
   const webhookclient = new WebhookClient({ url: process.env.ERRWEBHOOK });
   let messageid = "";
-  await webhookclient
-    .send({
-      content: `<@${process.env.OWNERID}>`,
-      embeds: [embed],
-      files: ["./src/console.txt"],
-    })
-    .then((message) => {
-      messageid = message.id;
-      console.log(message);
-      message.react(`🟢`);
-    });
+  await webhookclient.send({
+    content: `<@${process.env.OWNERID}>`,
+    embeds: [embed],
+    files: ["./src/console.txt"],
+  });
+  // .then((message) => {
+  //   messageid = message.id;
+  //   console.log(message);
+  //   message.react(`🟢`);
+  // });
   webhookclient.editMessage(messageid, {
     content: ``,
   });
