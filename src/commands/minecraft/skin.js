@@ -36,7 +36,9 @@ module.exports = class skinSlashCommand extends baseSlashCommand {
                   .setDescription(
                     `Click [here](${texturedata.textures.SKIN.url}) to download this skin`
                   )
-                  .setImage(`https://visage.surgeplay.com/full/${uuid}`)
+                  .setImage(
+                    `https://crafatar.com/renders/body/${uuid}?scale=8&overlay`
+                  )
                   .setColor(0xfaff86)
                   .setFooter({ text: `${uuid}` });
                 interaction.editReply({ embeds: [embed] });
@@ -47,7 +49,7 @@ module.exports = class skinSlashCommand extends baseSlashCommand {
                     `${username} does not have a skin. In the mean time, enjoy Imabanana80's skin`
                   )
                   .setImage(
-                    `https://visage.surgeplay.com/full/c4b04ee5c09041f2b34e8e302c626d67`
+                    `https://crafatar.com/renders/body/c4b04ee5c09041f2b34e8e302c626d67?scale=8&overlay`
                   )
                   .setColor(0xfaff86)
                   .setFooter({ text: `${uuid}` });
