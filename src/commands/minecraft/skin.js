@@ -33,26 +33,23 @@ module.exports = class skinSlashCommand extends baseSlashCommand {
               if (texturedata.textures.SKIN != undefined) {
                 const embed = new EmbedBuilder()
                   .setTitle(`${username}'s skin`)
+                  .setURL(`https://namemc.com/profile/${uuid}`)
                   .setDescription(
-                    `Click [here](${texturedata.textures.SKIN.url}) to download this skin`
+                    `Click [here](${texturedata.textures.SKIN.url}) to download`
                   )
-                  .setImage(
-                    `https://crafatar.com/renders/body/${uuid}?scale=8&overlay`
-                  )
-                  .setColor(0xfaff86)
-                  .setFooter({ text: `${uuid}` });
+                  .setImage(`${texturedata.textures.SKIN.url}`)
+                  .setColor(0xfaff86);
                 interaction.editReply({ embeds: [embed] });
               } else {
                 const embed = new EmbedBuilder()
                   .setTitle(`${username}'s skin`)
                   .setDescription(
-                    `${username} does not have a skin. In the mean time, enjoy Imabanana80's skin`
+                    `${username} does not have a skin.\nIn the mean time, enjoy Imabanana80's skin`
                   )
                   .setImage(
                     `https://crafatar.com/renders/body/c4b04ee5c09041f2b34e8e302c626d67?scale=8&overlay`
                   )
-                  .setColor(0xfaff86)
-                  .setFooter({ text: `${uuid}` });
+                  .setColor(0xfaff86);
                 interaction.editReply({ embeds: [embed] });
               }
             });
