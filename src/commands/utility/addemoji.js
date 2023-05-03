@@ -56,7 +56,10 @@ module.exports = class addemojiSlashCommand extends baseSlashCommand {
         option.setName("emoji").setDescription(":pepelaugh:").setRequired(true)
       )
       .addStringOption((option) =>
-        option.setName("name").setDescription("of the emoji").setRequired(true)
+        option
+          .setName("name")
+          .setDescription("to set for the new emoji")
+          .setRequired(true)
       );
   }
 };

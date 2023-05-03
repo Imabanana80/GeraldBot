@@ -20,7 +20,10 @@ module.exports = class iplookupSlashCommand extends baseSlashCommand {
       .setName(this.name)
       .setDescription("Lookup a IP address in the whois database")
       .addStringOption((option) =>
-        option.setName("ip").setDescription("IPv4 address").setRequired(true)
+        option
+          .setName("ip")
+          .setDescription("to lookup (IPv4)")
+          .setRequired(true)
       );
   }
 };

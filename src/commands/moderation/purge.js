@@ -16,7 +16,7 @@ module.exports = class purgeSlashCommand extends baseSlashCommand {
       `${interaction.user.id}`
     );
     if (interactionMember.permissions.has(PermissionFlagsBits.ManageMessages)) {
-      const purgeAmount = interaction.options.get("amount").value;
+      const purgeAmount = interaction.options.get("number").value;
       if (purgeAmount > 100) {
         errorMessage(
           client,
@@ -43,7 +43,10 @@ module.exports = class purgeSlashCommand extends baseSlashCommand {
       .setName(this.name)
       .setDescription("Purge messages from a channel")
       .addIntegerOption((option) =>
-        option.setName("amount").setDescription("messages").setRequired(true)
+        option
+          .setName("number")
+          .setDescription("of messages to delete")
+          .setRequired(true)
       );
   }
 };
