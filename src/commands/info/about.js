@@ -1,16 +1,62 @@
 const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
 const baseSlashCommand = require("../../utils/baseSlashCommand");
+const os = require("os");
+const { niceBytes, toTimeString, starttime } = require("../../index.js");
 module.exports = class aboutSlashCommand extends baseSlashCommand {
   constructor() {
     super("about");
   }
   async run(client, interaction) {
     await interaction.deferReply();
+    const ping = Date.now() - interaction.createdTimestamp;
+    const apiPing = await client.ws.ping;
+    const nowtime = Date.now() / 1000;
     const embed = new EmbedBuilder()
       .setColor(0xfaff86)
-      .setTitle("About me")
-      .setDescription(
-        `**Lead Developer: **Imabanana80#0001\n**Lead Test Dummy: **Luca#0616\n**Language:** [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)\n**Runtime: **[NodeJS](https://nodejs.org/)\n**DiscordAPI Module: **[DiscordJS](https://discord.js.org/#/)\n**AI Provider: **[OpenAI](https://openai.com/)\n**Server Host: **[Vultr - Free $100 credit](https://www.vultr.com/?ref=9014179-8H)`
+      .setTitle("About")
+      .addFields(
+        {
+          name: "Metrics",
+          value: `
+      \`\`┌\`\` **Uptime:** \`${toTimeString(nowtime - starttime)}\`
+      \`\`├\`\` **Bot Latency:** \`${ping}ms\`
+      \`\`├\`\` **API Latency:** \`${apiPing}ms\`
+      \`\`└\`\` **Ram Usage:** \`\`${niceBytes(
+        os.totalmem() - os.freemem()
+      )}/${niceBytes(os.totalmem())}\`\`
+      `,
+          inline: true,
+        },
+        {
+          name: "Engagement",
+          value: `
+      \`\`┌\`\` **Servers:** \`\`${client.guilds.cache.size}\`\`
+      \`\`├\`\` **Users:** \`\`${client.users.cache.size}\`\`
+      \`\`├\`\` **Online Users:** \`\`--\`\`
+      \`\`└\`\` **Commands Ran:** \`\`--\`\`
+      `,
+          inline: false,
+        },
+        {
+          name: "Dev Info",
+          value: `
+        \`\`┌\`\` **Developer:** [Imabanana80](https://imabanana80.com/)
+        \`\`├\`\` **Language:** [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+        \`\`├\`\` **Module:** [DiscordJS](https://discord.js.org/#/)
+        \`\`└\`\` **Server Host:** [Vultr](https://www.vultr.com/?ref=9014179-8H)
+        `,
+          inline: true,
+        },
+        {
+          name: "Links",
+          value: `
+        \`\`┌\`\` [Invite](https://imabanana80.com/geraldbot/invite)
+        \`\`├\`\` [Source](https://github.com/imabanana80/GeraldBot)
+        \`\`├\`\` [Wiki](https://github.com/imabanana80/GeraldBot/wiki)
+        \`\`└\`\` [Support](https://discord.gg/5GxWqAEdez)
+        `,
+          inline: true,
+        }
       );
     interaction.editReply({ embeds: [embed] });
   }

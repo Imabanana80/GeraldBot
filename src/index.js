@@ -128,3 +128,9 @@ setInterval(() => {
 }, 1 * 1000);
 
 main();
+
+module.exports = {
+  niceBytes,
+  toTimeString,
+  starttime,
+};

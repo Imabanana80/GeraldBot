@@ -4,7 +4,7 @@
   "description": "https://imabanana80.com/geraldbot",
   "main": "src/index.js",
   "scripts": {
-    "start:dev": "nodemon main.js"
+    "start:dev": "nodemon -L src/index.js"
   },
   "author": "Imabanana80",
   "license": "GPL-3.0-or-later",
@@ -14,7 +14,6 @@
     "discord-gamecord": "^4.3.0",
     "discord.js": "^14.8.0",
     "dotenv": "^16.0.3",
-    "nodemon": "^2.0.21",
     "openai": "^3.2.1",
     "read-last-lines": "^1.8.0",
     "whoiser": "^1.17.1"
