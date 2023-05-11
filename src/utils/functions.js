@@ -44,7 +44,7 @@ async function errorMessage(client, interaction, err) {
   await interaction.editReply({
     embeds: [errembed],
   });
-  console.log(`[Error] ${err}`);
+  console.log(`[Error] ${err} \n[Stack] ${err.stack}`);
   return;
 }
 

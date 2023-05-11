@@ -10,6 +10,9 @@ module.exports = class interactionCreateEvent extends baseEvent {
 
   run(client, interaction) {
     if (interaction.isChatInputCommand()) {
+      console.log(
+        `[Command] ${interaction} run by ${interaction.user.tag} in ${interaction.guild.name}`
+      );
       const { commandName } = interaction;
       const cmd = client.slashCommands.get(commandName);
       if (cmd) {
