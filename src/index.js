@@ -14,6 +14,7 @@ const readLastLines = require("read-last-lines");
 const os = require("os");
 const fs = require("fs");
 const util = require("util");
+const { mongoose } = require("mongoose");
 const axios = require("axios");
 
 var log_file = fs.createWriteStream(__dirname + "/console.txt", { flags: "w" });
@@ -79,6 +80,16 @@ async function main() {
         client.on(event.name, (...args) => event.run(client, ...args));
       }
     });
+    console.log("[Startup] Attempting to connect to MongoDB Database.");
+    try {
+      mongoose.connect(process.env.MONGOURI).then((success) => {
+        console.log(
+          "[Startup] Successfully connected to the MongoDB Database."
+        );
+      });
+    } catch (err) {
+      console.log(`[Database Error] ${err}`);
+    }
 
     console.log("[Startup] Logging bot in...");
     await client.login(process.env.TOKEN);
