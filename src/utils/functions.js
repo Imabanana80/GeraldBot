@@ -1,14 +1,12 @@
 const { EmbedBuilder, WebhookClient } = require("discord.js");
 
 async function errorMessage(client, interaction, err) {
-  const codeBlock = "```";
-  const cb = "``";
   const errembed = new EmbedBuilder()
     .setTitle(
       `An error occured whilst trying to run ${`${interaction}`.split(" ")[0]}`
     )
     .setColor("Red")
-    .setDescription(`${codeBlock}err\n${err}${codeBlock}`)
+    .setDescription(`\`\`\`err\n${err}\`\`\``)
     .addFields({
       name: "If this problem persists,",
       value:
@@ -17,19 +15,19 @@ async function errorMessage(client, interaction, err) {
     })
     .addFields({
       name: "Support ID (keep this!)",
-      value: `${cb}${interaction.id}${cb}`,
+      value: `\`\`${interaction.id}\`\``,
       inline: true,
     });
   const embed = new EmbedBuilder()
     .setTitle(`An error occured in ${interaction.guild.name}`)
     .setColor("Red")
-    .setDescription(`${codeBlock}err\n${err.stack || err}${codeBlock}`)
+    .setDescription(`\`\`\`err\n${err.stack || err}\`\`\``)
     .addFields(
-      { name: "Full Command", value: `${codeBlock}${interaction}${codeBlock}` },
+      { name: "Full Command", value: `\`\`\`${interaction}\`\`\`` },
       { name: `Triggered by`, value: `${interaction.user}`, inline: true },
       {
         name: "Support ID",
-        value: `${cb}${interaction.id}${cb}`,
+        value: `\`\`${interaction.id}\`\``,
         inline: true,
       }
     );

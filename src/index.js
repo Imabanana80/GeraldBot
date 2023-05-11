@@ -112,16 +112,15 @@ consoleWebhook.send({ content: `Starting...` }).then((whlogs) => {
   messageid = whlogs.id;
 });
 setInterval(() => {
-  const cb = "```";
   var nowtime = Date.now() / 1000;
   readLastLines.read("./src/console.txt", 25).then((lines) =>
     consoleWebhook
       .editMessage(messageid, {
-        content: `${cb}ts\n//${os.type()} Kernal\n${lines}\n\n//Device Info\n@@ Memory Used: ${niceBytes(
+        content: `\`\`\`ts\n//${os.type()} Kernal\n${lines}\n\n//Device Info\n@@ Memory Used: ${niceBytes(
           os.totalmem() - os.freemem()
         )} @@\n@@ Kernal OS: "${os.platform()}" @@\n@@ Kernal Version: ${os.release()} @@\n@@ UPTIME: ${toTimeString(
           nowtime - starttime
-        )} @@${cb}`,
+        )} @@\`\`\``,
       })
       .catch((err) => console.log(`[Console Error] - ${err}`))
   );
