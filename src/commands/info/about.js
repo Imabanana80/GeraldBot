@@ -20,13 +20,14 @@ module.exports = class aboutSlashCommand extends baseSlashCommand {
           value: `
       \`\`┌\`\` **Uptime:** \`${toTimeString(nowtime - starttime)}\`
       \`\`├\`\` **Bot Latency:** \`${ping}ms\`
-      \`\`├\`\` **API Latency:** \`${apiPing}ms\`
+      \`\`├\`\` **API Latency:** \`${apiPing}ms\` 
       \`\`└\`\` **Ram Usage:** \`\`${niceBytes(
         os.totalmem() - os.freemem()
       )}/${niceBytes(os.totalmem())}\`\`
       `,
           inline: true,
         },
+        { name: "\u200B", value: "\u200B", inline: true },
         {
           name: "Engagement",
           value: `
@@ -35,10 +36,8 @@ module.exports = class aboutSlashCommand extends baseSlashCommand {
       \`\`├\`\` **Online Users:** \`\`--\`\`
       \`\`└\`\` **Commands Ran:** \`\`--\`\`
       `,
-          inline: false,
-        }
-      )
-      .addFields(
+          inline: true,
+        },
         {
           name: "Dev Info",
           value: `
@@ -49,10 +48,11 @@ module.exports = class aboutSlashCommand extends baseSlashCommand {
         `,
           inline: true,
         },
+        { name: "\u200B", value: "\u200B", inline: true },
         {
           name: "Links",
           value: `
-        \`\`┌\`\` [Invite](https://imabanana80.com/geraldbot/invite)
+        \`\`┌\`\` [Invite](https://discord.com/oauth2/authorize?client_id=1024281696494964746&permissions=2194727632767&scope=bot%20applications.commands)
         \`\`├\`\` [Source](https://github.com/imabanana80/GeraldBot)
         \`\`├\`\` [Wiki](https://github.com/imabanana80/GeraldBot/wiki)
         \`\`└\`\` [Support](https://discord.gg/5GxWqAEdez)
