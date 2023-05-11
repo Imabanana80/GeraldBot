@@ -36,7 +36,9 @@ module.exports = class aboutSlashCommand extends baseSlashCommand {
       \`\`└\`\` **Commands Ran:** \`\`--\`\`
       `,
           inline: false,
-        },
+        }
+      )
+      .addFields(
         {
           name: "Dev Info",
           value: `
@@ -63,6 +65,6 @@ module.exports = class aboutSlashCommand extends baseSlashCommand {
   getSlashCommandJSON() {
     return new SlashCommandBuilder()
       .setName(this.name)
-      .setDescription("All about me!");
+      .setDescription("Some possibly useful infomation about me!");
   }
 };
