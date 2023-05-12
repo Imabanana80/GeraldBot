@@ -73,6 +73,6 @@ module.exports = class aboutSlashCommand extends baseSlashCommand {
   getSlashCommandJSON() {
     return new SlashCommandBuilder()
       .setName(this.name)
-      .setDescription("Some possibly useful infomation about me!");
+      .setDescription("Some useful metrics infomation about me!");
   }
 };
