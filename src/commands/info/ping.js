@@ -6,7 +6,6 @@ module.exports = class pingSlashCommand extends baseSlashCommand {
     super("ping");
   }
   async run(client, interaction) {
-    await interaction.deferReply();
     var pingColor = "";
     const ping = Date.now() - interaction.createdTimestamp;
     const apiPing = await client.ws.ping;
@@ -24,16 +23,16 @@ module.exports = class pingSlashCommand extends baseSlashCommand {
       .addFields(
         {
           name: "Bot latency:",
-          value: `\`\`${ping}ms      \`\``,
+          value: `\`\`\`${ping}ms      \`\`\``,
           inline: true,
         },
         {
           name: "API latency:",
-          value: `\`\`${apiPing}ms      \`\``,
+          value: `\`\`\`${apiPing}ms      \`\`\``,
           inline: true,
         }
       );
-    interaction.editReply({ embeds: [embed] });
+    interaction.reply({ embeds: [embed] });
   }
   getSlashCommandJSON() {
     return new SlashCommandBuilder()

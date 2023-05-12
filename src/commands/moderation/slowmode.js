@@ -32,6 +32,7 @@ module.exports = class slowmodeSlashCommand extends baseSlashCommand {
         }, 0);
         if (seconds >= 21600) {
           errorMessage(
+            client,
             interaction,
             "Error: Duration too long - limit of 21600 seconds"
           );
@@ -48,6 +49,7 @@ module.exports = class slowmodeSlashCommand extends baseSlashCommand {
         }
       } else {
         errorMessage(
+          client,
           interaction,
           "Error: Invalid time format (Use <length>s/m/h)"
         );

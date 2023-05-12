@@ -33,7 +33,7 @@ module.exports = class aboutSlashCommand extends baseSlashCommand {
           value: `
       \`\`┌\`\` **Servers:** \`\`${client.guilds.cache.size}\`\`
       \`\`├\`\` **Users:** \`\`${client.users.cache.size}\`\`
-      \`\`├\`\` **Online Users:** \`\`--\`\`
+      \`\`├\`\` **Messages:** \`\`--\`\`
       \`\`└\`\` **Commands Ran:** \`\`--\`\`
       `,
           inline: true,

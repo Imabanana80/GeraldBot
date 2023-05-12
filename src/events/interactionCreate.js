@@ -15,6 +15,7 @@ module.exports = class interactionCreateEvent extends baseEvent {
       );
       const { commandName } = interaction;
       const cmd = client.slashCommands.get(commandName);
+      console.log(commandName);
       if (cmd) {
         if (cooldownManager.has(interaction.user.id)) {
           interaction.reply(
