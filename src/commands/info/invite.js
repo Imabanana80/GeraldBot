@@ -11,7 +11,7 @@ module.exports = class inviteSlashCommand extends baseSlashCommand {
       .setColor(0xfaff86)
       .setTitle("Click here to invite me!")
       .setURL(
-        "https://discord.com/oauth2/authorize?client_id=1024281696494964746&permissions=2194727632767&scope=bot%20applications.commands"
+        "https://discord.com/oauth2/authorize?client_id=1024281696494964746&permissions=2194727632767&scope=applications.commands%20bot"
       )
       .setFooter({
         text: "Note: Still in early development. Expect bugs.",
