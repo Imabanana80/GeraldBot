@@ -1,4 +1,5 @@
-const { EmbedBuilder, WebhookClient } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
+const CommandUsage = require("../schemas/commandUsage");
 
 async function errorMessage(client, interaction, err) {
   const errembed = new EmbedBuilder()
@@ -48,6 +49,28 @@ async function errorMessage(client, interaction, err) {
   return;
 }
 
+async function updateCommandUsage(commandName) {
+  commandName = commandName.toString();
+  commandName = commandName.toLowerCase();
+  const getCommandUsage = await CommandUsage.findOne({
+    command: `${commandName}`,
+  });
+  if (getCommandUsage) {
+    usesCount = getCommandUsage.uses + 1;
+    const updateCommandUsage = await getCommandUsage.overwrite({
+      command: `${commandName}`,
+      uses: usesCount,
+    });
+    await updateCommandUsage.save();
+  } else {
+    const newCommandUsage = await CommandUsage.create({
+      command: `${commandName}`,
+      uses: 1,
+    });
+    await newCommandUsage.save();
+  }
+}
+
 async function noPerms(interaction, permission) {
   const noPermsEmbed = new EmbedBuilder()
     .setTitle("Insufficient permissions!")
@@ -61,4 +84,5 @@ async function noPerms(interaction, permission) {
 module.exports = {
   errorMessage,
   noPerms,
+  updateCommandUsage,
 };

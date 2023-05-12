@@ -1,7 +1,8 @@
 const baseEvent = require("../utils/baseEvent");
 // const { InteractionType } = require("discord.js");
-const { errorMessage } = require("../utils/functions");
+const { errorMessage, updateCommandUsage } = require("../utils/functions");
 const cooldownManager = new Set();
+const { CommandUsage } = require("../schemas/commandUsage");
 
 module.exports = class interactionCreateEvent extends baseEvent {
   constructor() {
@@ -22,11 +23,16 @@ module.exports = class interactionCreateEvent extends baseEvent {
             "**You're going to fast!**\n> *There is a ``2`` second global cooldown.*"
           );
         } else {
-          cmd.run(client, interaction).catch((err) =>
-            errorMessage(client, interaction, err).catch((error) => {
-              console.log(`[FATAL] ${err.stack}`);
-            })
-          );
+          cmd
+            .run(client, interaction)
+            .catch((err) =>
+              errorMessage(client, interaction, err).catch((error) => {
+                console.log(`[FATAL] ${err.stack}`);
+              })
+            )
+            .then(() => {
+              updateCommandUsage(commandName);
+            });
         }
         cooldownManager.add(interaction.user.id);
         setTimeout(() => {
