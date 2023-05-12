@@ -9,12 +9,13 @@ module.exports = class aboutSlashCommand extends baseSlashCommand {
   }
   async run(client, interaction) {
     await interaction.deferReply();
-    const ping = Date.now() - interaction.createdTimestamp;
     const apiPing = await client.ws.ping;
     const nowtime = Date.now() / 1000;
     var totaluses = 0;
+    var totalcmds = 0;
     const commandUsages = await CommandUsage.find({});
     commandUsages.forEach((cmd) => {
+      totalcmds = totalcmds + 1;
       totaluses = totaluses + cmd.uses;
     });
 
@@ -26,8 +27,8 @@ module.exports = class aboutSlashCommand extends baseSlashCommand {
           name: "Metrics",
           value: `
       \`\`┌\`\` **Uptime:** \`${toTimeString(nowtime - starttime)}\`
-      \`\`├\`\` **Bot Latency:** \`${ping}ms\`
       \`\`├\`\` **API Latency:** \`${apiPing}ms\` 
+      \`\`├\`\` **Commands:** \`${totalcmds}\` 
       \`\`└\`\` **Ram Usage:** \`\`${niceBytes(
         os.totalmem() - os.freemem()
       )}/${niceBytes(os.totalmem())}\`\`
@@ -40,8 +41,8 @@ module.exports = class aboutSlashCommand extends baseSlashCommand {
           value: `
       \`\`┌\`\` **Servers:** \`\`${client.guilds.cache.size}\`\`
       \`\`├\`\` **Users:** \`\`${client.users.cache.size}\`\`
-      \`\`└\`\` **Command uses:** \`\`${totaluses}\`\`
-      \`\`├\`\` **Messages:** \`\`--\`\`
+      \`\`├\`\` **Command uses:** \`\`${totaluses}\`\`
+      \`\`└\`\` **Database size:** \`\`--\`\`
       `,
           inline: true,
         },
