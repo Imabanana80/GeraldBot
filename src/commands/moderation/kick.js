@@ -41,34 +41,21 @@ module.exports = class kickSlashCommand extends baseSlashCommand {
             .setFooter({ text: `Kicked by: ${interaction.user.tag}` });
           const dmChannel = await targetUser.createDM(false);
           dmChannel.send({ embeds: [dmbed] }).catch((err) => {
-            embed = new EmbedBuilder()
-              .setColor(0xfaff86)
-              .setTitle(`Kicked ${targetUser.username}`)
-              .addFields({
-                name: `${targetUser.tag} has been kicked from the Server`,
-                value: `Reason: \`\`${reason}\`\``,
-              })
-              .setFooter({
-                text: `Punishment issued by ${interaction.user.tag} || UNABLE TO DM USER`,
-              });
+            return;
           });
         }
         targetMember.kick(`${reason}`).then(() => {
-          if (typeof embed == "object") {
-            interaction.editReply({ embeds: [embed] });
-          } else {
-            embed = new EmbedBuilder()
-              .setColor(0xfaff86)
-              .setTitle(`Kicked ${targetUser.username}`)
-              .addFields({
-                name: `${targetUser.tag} has been kicked from the Server`,
-                value: `Reason: \`\`${reason}\`\``,
-              })
-              .setFooter({
-                text: `Punishment given by ${interaction.user.tag}`,
-              });
-            interaction.editReply({ embeds: [embed] });
-          }
+          embed = new EmbedBuilder()
+            .setColor(0xfaff86)
+            .setTitle(`Kicked ${targetUser.username}`)
+            .addFields({
+              name: `${targetUser.tag} has been kicked from the Server`,
+              value: `Reason: \`\`${reason}\`\``,
+            })
+            .setFooter({
+              text: `Punishment given by ${interaction.user.tag}`,
+            });
+          interaction.editReply({ embeds: [embed] });
         });
       }
     } else {
