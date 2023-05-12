@@ -1,6 +1,7 @@
 const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
 const baseSlashCommand = require("../../utils/baseSlashCommand");
 const { errorMessage, noPerms } = require("../../utils/functions");
+const CommandUsage = require("../../schemas/commandUsage");
 
 module.exports = class devtoolsSlashCommand extends baseSlashCommand {
   constructor() {
@@ -51,6 +52,27 @@ module.exports = class devtoolsSlashCommand extends baseSlashCommand {
           content: `**${client.users.cache.size} users in ${client.guilds.cache.size} servers**`,
           files: [{ attachment: buff, name: "serverlist.txt" }],
         });
+      }
+
+      if (cmd == "usage") {
+        const getCommandUsage = await CommandUsage.findOne({ command: args });
+        if (!getCommandUsage) {
+          const embed = new EmbedBuilder()
+            .setTitle("Unable to fetch uses")
+            .setDescription(
+              `\`\`/${args}\`\` has either never been used or does not exist`
+            )
+            .setColor("Red");
+          interaction.editReply({ embeds: [embed] });
+        } else {
+          const embed = new EmbedBuilder()
+            .setTitle(`Usage stats`)
+            .setDescription(
+              `\`\`/${args}\`\` has been used \`\`${getCommandUsage.uses}\`\` times`
+            )
+            .setColor(0xfaff86);
+          interaction.editReply({ embeds: [embed] });
+        }
       }
 
       if (cmd == "error") {
