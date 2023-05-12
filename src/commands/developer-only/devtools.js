@@ -1,6 +1,6 @@
 const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
 const baseSlashCommand = require("../../utils/baseSlashCommand");
-const { errorMessage } = require("../../utils/functions");
+const { errorMessage, noPerms } = require("../../utils/functions");
 
 module.exports = class devtoolsSlashCommand extends baseSlashCommand {
   constructor() {
