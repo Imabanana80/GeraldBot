@@ -1,5 +1,3 @@
-![](https://widgets.infinitybots.gg/bot/gerald/?size=small&theme=light&accent=blue)
-
 ### Invite
 
 You can invite Gerald from the [official website](https://imabanana80.com/geraldbot/invite), or from the [top.gg page](https://top.gg/bot/1024281696494964746).
