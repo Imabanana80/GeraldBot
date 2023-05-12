@@ -52,7 +52,7 @@ module.exports = class automodSlashCommand extends baseSlashCommand {
                   "Gerald now blocks discord server invite links!"
                 )
                 .setFooter({
-                  text: "configure exempted channels and roles & setup logs manually in your server's automod settings...",
+                  text: "Exempted channels & roles, and logging can be set up manually in server settings",
                 }),
             ],
           });
@@ -87,7 +87,7 @@ module.exports = class automodSlashCommand extends baseSlashCommand {
                 .setTitle("Added automod rule")
                 .setDescription("Gerald now blocks discord gift links!")
                 .setFooter({
-                  text: "configure exempted channels and roles & setup logs manually in your server's automod settings...",
+                  text: "Exempted channels & roles, and logging can be set up manually in server settings",
                 }),
             ],
           });
@@ -100,7 +100,7 @@ module.exports = class automodSlashCommand extends baseSlashCommand {
   getSlashCommandJSON() {
     return new SlashCommandBuilder()
       .setName(this.name)
-      .setDescription("Setup some pre-built automod configurations")
+      .setDescription("Set up some pre-built automod configurations")
       .addSubcommand((command) =>
         command
           .setName("discord-invites")

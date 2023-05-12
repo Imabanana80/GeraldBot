@@ -60,7 +60,9 @@ module.exports = class skinSlashCommand extends baseSlashCommand {
   getSlashCommandJSON() {
     return new SlashCommandBuilder()
       .setName(this.name)
-      .setDescription("Get the target user's minecraft skin")
+      .setDescription(
+        "View the minecraft skin of the targeted minecraft player"
+      )
       .addStringOption((option) =>
         option
           .setName("username")

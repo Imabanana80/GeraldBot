@@ -57,7 +57,7 @@ module.exports = class userinfoSlashCommand extends baseSlashCommand {
   getSlashCommandJSON() {
     return new SlashCommandBuilder()
       .setName(this.name)
-      .setDescription("View some general infomation about the user")
+      .setDescription("View some general infomation about the targeted user")
       .addUserOption((option) =>
         option.setName("user").setDescription("target")
       );

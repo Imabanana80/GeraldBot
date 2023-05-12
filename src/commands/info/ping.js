@@ -37,6 +37,6 @@ module.exports = class pingSlashCommand extends baseSlashCommand {
   getSlashCommandJSON() {
     return new SlashCommandBuilder()
       .setName(this.name)
-      .setDescription("Check the latency of the bot");
+      .setDescription("Check bot and api latency");
   }
 };

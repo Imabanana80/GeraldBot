@@ -107,7 +107,7 @@ module.exports = class serverinfoSlashCommand extends baseSlashCommand {
     return new SlashCommandBuilder()
       .setName(this.name)
       .setDescription(
-        "View some general info about the server the command is run in "
+        "View some general info about the server this command is run in "
       );
   }
 };
