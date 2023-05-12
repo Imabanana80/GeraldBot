@@ -1,7 +1,8 @@
 const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
 const baseSlashCommand = require("../../utils/baseSlashCommand");
 const os = require("os");
-const { niceBytes, toTimeString, starttime } = require("../../index.js");
+const { niceBytes, toTimeString, starttime } = require("../../index");
+const CommandUsage = require("../../schemas/commandUsage");
 module.exports = class aboutSlashCommand extends baseSlashCommand {
   constructor() {
     super("about");
@@ -11,6 +12,12 @@ module.exports = class aboutSlashCommand extends baseSlashCommand {
     const ping = Date.now() - interaction.createdTimestamp;
     const apiPing = await client.ws.ping;
     const nowtime = Date.now() / 1000;
+    var totaluses = 0;
+    const commandUsages = await CommandUsage.find({});
+    commandUsages.forEach((cmd) => {
+      totaluses = totaluses + cmd.uses;
+    });
+
     const embed = new EmbedBuilder()
       .setColor(0xfaff86)
       .setTitle("About")
@@ -33,8 +40,8 @@ module.exports = class aboutSlashCommand extends baseSlashCommand {
           value: `
       \`\`┌\`\` **Servers:** \`\`${client.guilds.cache.size}\`\`
       \`\`├\`\` **Users:** \`\`${client.users.cache.size}\`\`
+      \`\`└\`\` **Command uses:** \`\`${totaluses}\`\`
       \`\`├\`\` **Messages:** \`\`--\`\`
-      \`\`└\`\` **Commands Ran:** \`\`--\`\`
       `,
           inline: true,
         },
