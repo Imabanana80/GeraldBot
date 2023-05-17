@@ -1,3 +1,5 @@
+Gerald has sadly been discontinued. Infomation below may be outdated or not work anymore
+
 ### Invite
 
 You can invite Gerald from the [official website](https://imabanana80.com/geraldbot/invite), or from the [top.gg page](https://top.gg/bot/1024281696494964746).
